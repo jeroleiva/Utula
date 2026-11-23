@@ -4,9 +4,10 @@ import Navbar from '@/components/Navbar.astro';
 import Features from '@/components/Features.astro';
 import Footer from '@/components/Footer.astro';
 
-// Aquí conectamos con tu repositorio real en GitHub
 const REPO = 'jeroleiva/Utula';
-const LATEST_URL = `https://github.com/jeroleiva/Utula/releases/latest/download/app-release.apk`;
+const API_URL = `https://api.github.com/repos/${REPO}/releases/latest`;
+// Cambiá "app-release.apk" si tu archivo en GitHub se llama distinto (ej. "utula.apk")
+const DIRECT_DOWNLOAD_URL = `https://github.com/${REPO}/releases/latest/download/app-release.apk`;
 ---
 
 <Layout title="Utula — El control de tus finanzas">
@@ -41,7 +42,8 @@ const LATEST_URL = `https://github.com/jeroleiva/Utula/releases/latest/download/
       <!-- Botón de Descarga -->
       <a
         id="download"
-        href="#"
+        href={DIRECT_DOWNLOAD_URL}
+        download
         class="mt-12 inline-flex items-center gap-3 rounded-full bg-utula-teal text-white px-8 py-4 font-semibold shadow-lg shadow-utula-teal/20 hover:shadow-xl hover:shadow-utula-teal/30 hover:-translate-y-0.5 transition-all duration-300"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -59,20 +61,20 @@ const LATEST_URL = `https://github.com/jeroleiva/Utula/releases/latest/download/
     <Footer />
   </div>
 
-  <script define:vars={{ LATEST_URL }}>
+  <script define:vars={{ API_URL }}>
     const btn = document.getElementById('download');
     const label = document.getElementById('version');
 
-    fetch(LATEST_URL)
+    fetch(API_URL)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then((release) => {
-        const apk = release.assets?.find((a) => a.name.endsWith('.apk'));
+        const apk = release.assets?.find((a) => a.name.toLowerCase().endsWith('.apk'));
         if (!apk) throw new Error('sin apk');
         btn.href = apk.browser_download_url;
         label.textContent = `Versión ${release.tag_name} · ${(apk.size / 1048576).toFixed(1)} MB`;
       })
       .catch(() => {
-        label.textContent = 'Aún sin versiones publicadas';
+        label.textContent = 'Última versión disponible';
       });
   </script>
 </Layout>
