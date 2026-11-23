@@ -1,0 +1,24 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Navbar from '@/components/Navbar.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<Layout title="Privacidad — Utula">
+  <div class="min-h-dvh bg-utula-cream flex flex-col">
+    <Navbar />
+    <main class="flex-1 max-w-3xl mx-auto px-6 pt-32 pb-20 text-utula-teal">
+      <h1 class="text-4xl font-bold tracking-tight mb-8">Política de Privacidad</h1>
+      <div class="space-y-6 text-utula-teal/80 leading-relaxed text-sm">
+        <p>En Utula, la privacidad no es una opción, es la arquitectura central de nuestro producto.</p>
+        <h2 class="text-lg font-semibold text-utula-teal pt-4">1. Tus datos son tuyos</h2>
+        <p>Utula funciona bajo un modelo Local-First. Esto significa que toda tu información financiera se almacena directamente en tu dispositivo. No tenemos acceso a tus saldos, deudas ni transacciones.</p>
+        <h2 class="text-lg font-semibold text-utula-teal pt-4">2. Sin rastreo</h2>
+        <p>No utilizamos cookies de seguimiento de terceros ni vendemos datos a anunciantes. Tu actividad en la app es completamente privada.</p>
+        <h2 class="text-lg font-semibold text-utula-teal pt-4">3. Backups</h2>
+        <p>Si decidís exportar un respaldo (JSON), el archivo se guarda localmente o en tu cuenta personal de Google Drive. Nosotros no intermediarios en ese proceso.</p>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

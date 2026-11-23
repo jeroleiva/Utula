@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Paleta Utula extraída de tu logo */
+  --color-utula-cream: #F9F6F0;
+  --color-utula-teal: #165349;
+  --color-utula-terracotta: #E07856;
+  --color-utula-sand: #DCB074;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-utula-cream text-utula-teal;
+  }
+}

@@ -1,0 +1,24 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Navbar from '@/components/Navbar.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<Layout title="Términos — Utula">
+  <div class="min-h-dvh bg-utula-cream flex flex-col">
+    <Navbar />
+    <main class="flex-1 max-w-3xl mx-auto px-6 pt-32 pb-20 text-utula-teal">
+      <h1 class="text-4xl font-bold tracking-tight mb-8">Términos y Condiciones</h1>
+      <div class="space-y-6 text-utula-teal/80 leading-relaxed text-sm">
+        <p>Al usar Utula, aceptás los siguientes términos diseñados para proteger tanto tu experiencia como nuestro trabajo.</p>
+        <h2 class="text-lg font-semibold text-utula-teal pt-4">1. Uso de la aplicación</h2>
+        <p>Utula es una herramienta de gestión financiera personal. No constituye asesoramiento financiero, legal o contable profesional.</p>
+        <h2 class="text-lg font-semibold text-utula-teal pt-4">2. Modelo Freemium</h2>
+        <p>El núcleo de la aplicación es gratuito. Las funciones avanzadas podrán requerir una suscripción. No realizamos cobros ocultos.</p>
+        <h2 class="text-lg font-semibold text-utula-teal pt-4">3. Responsabilidad</h2>
+        <p>Como los datos se almacenan localmente, la pérdida del dispositivo o la eliminación accidental de la app sin un backup previo es responsabilidad del usuario. Recomendamos enfáticamente exportar respaldos periódicamente.</p>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

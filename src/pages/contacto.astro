@@ -1,0 +1,43 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Navbar from '@/components/Navbar.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<Layout title="Contacto — Utula">
+  <div class="min-h-dvh bg-utula-cream flex flex-col">
+    <Navbar />
+    <main class="flex-1 flex items-center justify-center px-6 pt-32 pb-20">
+      <div class="w-full max-w-md bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-utula-teal/10">
+        <h1 class="text-3xl font-bold text-utula-teal mb-2 tracking-tight">Hablemos.</h1>
+        <p class="text-utula-teal/60 mb-8 text-sm">¿Tenés dudas, sugerencias o querés reportar un error? Escribinos.</p>
+        
+        <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4">
+          <!-- Tu Access Key de Web3Forms -->
+          <input type="hidden" name="access_key" value="3394e3d5-5337-45fc-a8d9-7ca8b126ef50">
+          <input type="hidden" name="subject" value="Nuevo mensaje desde Utula Web">
+          
+          <div>
+            <label class="block text-sm font-medium text-utula-teal mb-1">Nombre</label>
+            <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-utula-cream border border-transparent focus:border-utula-teal focus:ring-2 focus:ring-utula-teal/20 outline-none transition-all text-sm">
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-utula-teal mb-1">Email</label>
+            <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-utula-cream border border-transparent focus:border-utula-teal focus:ring-2 focus:ring-utula-teal/20 outline-none transition-all text-sm">
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-utula-teal mb-1">Mensaje</label>
+            <textarea name="message" required rows="4" class="w-full px-4 py-3 rounded-xl bg-utula-cream border border-transparent focus:border-utula-teal focus:ring-2 focus:ring-utula-teal/20 outline-none transition-all text-sm resize-none"></textarea>
+          </div>
+          
+          <button type="submit" class="mt-2 w-full bg-utula-teal text-white font-semibold py-3 rounded-xl hover:bg-utula-teal/90 transition-colors shadow-lg shadow-utula-teal/20">
+            Enviar mensaje
+          </button>
+        </form>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

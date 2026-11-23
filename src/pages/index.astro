@@ -1,0 +1,77 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Navbar from '@/components/Navbar.astro';
+import Features from '@/components/Features.astro';
+import Footer from '@/components/Footer.astro'; // <-- Nuevo Footer
+
+const REPO = 'TU_USUARIO/utula-releases';
+const LATEST_URL = `https://api.github.com/repos/${REPO}/releases/latest`;
+---
+
+<Layout title="Utula — El control de tus finanzas">
+  <div class="relative min-h-dvh bg-utula-cream overflow-hidden selection:bg-utula-teal/20">
+    
+    <!-- Fondo con luces suaves -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-125 opacity-20 pointer-events-none">
+      <div class="absolute inset-0 bg-linear-to-b from-utula-sand via-utula-terracotta to-transparent blur-3xl rounded-full mix-blend-multiply"></div>
+    </div>
+
+    <Navbar />
+
+    <main class="relative z-10 flex flex-col items-center justify-center px-6 text-center pt-40 pb-20">
+      
+      <!-- Logo -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-utula-teal/20 rounded-3xl blur-lg opacity-50 group-hover:opacity-100 transition duration-500"></div>
+        <img src="/logo.png" alt="Utula" class="relative w-28 h-28 mb-10 rounded-3xl shadow-xl transition-transform duration-500 group-hover:scale-105 border border-white/50" />
+      </div>
+
+      <!-- Título -->
+      <h1 class="text-6xl md:text-8xl font-bold tracking-tighter text-utula-teal">
+        Utula
+      </h1>
+      
+      <!-- Subtítulo serio y profesional -->
+      <p class="mt-6 text-lg md:text-xl text-utula-teal/80 max-w-lg leading-relaxed font-medium">
+        La evolución de tus finanzas. <br class="hidden md:block"/> 
+        <span class="text-utula-terracotta">Simple, privado y hecho para vos.</span>
+      </p>
+
+      <!-- Botón de Descarga -->
+      <a
+        id="download"
+        href="#"
+        class="mt-12 inline-flex items-center gap-3 rounded-full bg-utula-teal text-white px-8 py-4 font-semibold shadow-lg shadow-utula-teal/20 hover:shadow-xl hover:shadow-utula-teal/30 hover:-translate-y-0.5 transition-all duration-300"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar APK
+      </a>
+
+      <!-- Estado de la versión -->
+      <p id="version" class="mt-4 text-sm font-medium text-utula-teal/60 tracking-wide">
+        Buscando última versión…
+      </p>
+    </main>
+
+    <Features />
+
+    <Footer />
+  </div>
+
+  <script define:vars={{ LATEST_URL }}>
+    const btn = document.getElementById('download');
+    const label = document.getElementById('version');
+
+    fetch(LATEST_URL)
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((release) => {
+        const apk = release.assets?.find((a) => a.name.endsWith('.apk'));
+        if (!apk) throw new Error('sin apk');
+        btn.href = apk.browser_download_url;
+        label.textContent = `Versión ${release.tag_name} · ${(apk.size / 1048576).toFixed(1)} MB`;
+      })
+      .catch(() => {
+        label.textContent = 'Aún sin versiones publicadas';
+      });
+  </script>
+</Layout>
