@@ -2,9 +2,10 @@
 import Layout from '@/layouts/Layout.astro';
 import Navbar from '@/components/Navbar.astro';
 import Features from '@/components/Features.astro';
-import Footer from '@/components/Footer.astro'; // <-- Nuevo Footer
+import Footer from '@/components/Footer.astro';
 
-const REPO = 'TU_USUARIO/utula-releases';
+// Aquí conectamos con tu repositorio real en GitHub
+const REPO = 'jeroleiva/Utula';
 const LATEST_URL = `https://api.github.com/repos/${REPO}/releases/latest`;
 ---
 
@@ -31,7 +32,7 @@ const LATEST_URL = `https://api.github.com/repos/${REPO}/releases/latest`;
         Utula
       </h1>
       
-      <!-- Subtítulo serio y profesional -->
+      <!-- Subtítulo -->
       <p class="mt-6 text-lg md:text-xl text-utula-teal/80 max-w-lg leading-relaxed font-medium">
         La evolución de tus finanzas. <br class="hidden md:block"/> 
         <span class="text-utula-terracotta">Simple, privado y hecho para vos.</span>
