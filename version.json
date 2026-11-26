@@ -1,4 +1,6 @@
 {
-  "version": "0.1.3",
-  "apk_url": "https://github.com/jeroleiva/Utula/releases/download/v0.1.2/app-release.apk"
+  "version": "0.1.2",
+  "build_number": 2,
+  "apk_url": "https://github.com/jeroleiva/Utula/releases/download/v0.1.2/app-release.apk",
+  "notes": "Primera version estable con OTA y base cifrada."
 }
