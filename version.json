@@ -1,6 +1,6 @@
 {
-  "version": "0.2.0",
-  "build_number": 4,
-  "apk_url": "https://github.com/jeroleiva/Utula/releases/download/v0.2.0/app-release.apk",
-  "notes": "Soporte de respaldo automatico y mejoras de estabilidad."
+  "version": "0.2.1",
+  "build_number": 5,
+  "apk_url": "https://github.com/jeroleiva/Utula/releases/download/v0.2.1/app-release.apk",
+  "notes": "Corrige el error que impedia cargar los movimientos tras actualizar la app con la sesion iniciada."
 }
