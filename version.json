@@ -1,6 +1,6 @@
 {
-  "version": "0.2.1",
-  "build_number": 5,
-  "apk_url": "https://github.com/jeroleiva/Utula/releases/download/v0.2.1/app-release.apk",
-  "notes": "Corrige el error que impedia cargar los movimientos tras actualizar la app con la sesion iniciada."
+  "version": "0.3.0",
+  "build_number": 6,
+  "apk_url": "https://github.com/jeroleiva/Utula/releases/download/v0.3.0/app-release.apk",
+  "notes": "Novedades: Modulo de Deudas y Cuotas, Vista Mensual con desglose de Impuestos, y nuevo sistema de Backup automatico en Google Drive."
 }
