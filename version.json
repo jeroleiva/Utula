@@ -1,6 +1,6 @@
 {
-  "version": "0.3.0",
-  "build_number": 6,
-  "apk_url": "https://github.com/jeroleiva/Utula/releases/download/v0.3.0/app-release.apk",
-  "notes": "Novedades: Modulo de Deudas y Cuotas, Vista Mensual con desglose de Impuestos, y nuevo sistema de Backup automatico en Google Drive."
+  "version": "0.4.0",
+  "build_number": 7,
+  "apk_url": "https://github.com/jeroleiva/Utula/releases/download/v0.4.0/app-release.apk",
+  "notes": "Novedades: Nuevos graficos interactivos, panel de administrador mejorado, modulo de analiticas y optimizacion general de la app."
 }
